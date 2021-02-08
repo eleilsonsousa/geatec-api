@@ -19,6 +19,15 @@ __decorate([
     __metadata("design:type", String)
 ], Cliente.prototype, "nome", void 0);
 __decorate([
+    typeorm_1.Index("razaoSocial-index"),
+    typeorm_1.Column({ length: 150 }),
+    __metadata("design:type", String)
+], Cliente.prototype, "razaoSocial", void 0);
+__decorate([
+    typeorm_1.Column({ length: 150 }),
+    __metadata("design:type", String)
+], Cliente.prototype, "fantasia", void 0);
+__decorate([
     typeorm_1.Index("cpf-index"),
     typeorm_1.Column({ length: 15 }),
     __metadata("design:type", String)
