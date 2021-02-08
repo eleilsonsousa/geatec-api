@@ -36,7 +36,7 @@ export default class Cliente extends EntityGeneric {
     cep: string;
 
     @Column({ length: 4, nullable: true })
-    uf: string;
+    uf: string; 
 
     @Column({ length: 100, nullable: true })
     complemento: string;
