@@ -19,7 +19,7 @@
     "scripts": {
         "build": "tsc",
         "dev": "nodemon --exce  tsc-node src/app.ts",
-        "start": "npm i && node dist/app.js"
+        "start": "npm i && node dist/app.js "
 
     }
 }
