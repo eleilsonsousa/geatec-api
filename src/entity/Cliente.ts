@@ -10,6 +10,13 @@ export default class Cliente extends EntityGeneric {
     @Index("nome-index")
     @Column({ length: 150 })
     nome: string;
+   
+    @Index("razaoSocial-index")
+    @Column({ length: 150 })
+    razaoSocial: string;
+
+    @Column({ length: 150 })
+    fantasia: string;
 
     @Index("cpf-index")
     @Column({ length: 15 })
