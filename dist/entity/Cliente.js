@@ -15,21 +15,21 @@ let Cliente = class Cliente extends EntityGeneric_1.default {
 };
 __decorate([
     typeorm_1.Index("nome-index"),
-    typeorm_1.Column({ length: 150 }),
+    typeorm_1.Column({ length: 150, nullable: true }),
     __metadata("design:type", String)
 ], Cliente.prototype, "nome", void 0);
 __decorate([
     typeorm_1.Index("razaoSocial-index"),
-    typeorm_1.Column({ length: 150 }),
+    typeorm_1.Column({ length: 150, nullable: true }),
     __metadata("design:type", String)
 ], Cliente.prototype, "razaoSocial", void 0);
 __decorate([
-    typeorm_1.Column({ length: 150 }),
+    typeorm_1.Column({ length: 150, nullable: true }),
     __metadata("design:type", String)
 ], Cliente.prototype, "fantasia", void 0);
 __decorate([
     typeorm_1.Index("cpf-index"),
-    typeorm_1.Column({ length: 15 }),
+    typeorm_1.Column({ length: 15, nullable: true }),
     __metadata("design:type", String)
 ], Cliente.prototype, "cpf", void 0);
 __decorate([
@@ -49,6 +49,10 @@ __decorate([
     typeorm_1.Column({ length: 10, nullable: true }),
     __metadata("design:type", String)
 ], Cliente.prototype, "cep", void 0);
+__decorate([
+    typeorm_1.Column({ length: 4, nullable: true }),
+    __metadata("design:type", String)
+], Cliente.prototype, "uf", void 0);
 __decorate([
     typeorm_1.Column({ length: 100, nullable: true }),
     __metadata("design:type", String)
