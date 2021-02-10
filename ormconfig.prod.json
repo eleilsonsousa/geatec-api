@@ -2,9 +2,9 @@
     "type": "mysql",
     "host": "mysql742.umbler.com",
     "port": 3306,
-    "username": "geatec",
-    "password": "leo16031603",
-    "database": "geatec_api",
+    "username": "geatec-root",
+    "password": "rootroot",
+    "database": "db-geatec",
     "synchronize": true,
     "logging": false,
     "entities": [
