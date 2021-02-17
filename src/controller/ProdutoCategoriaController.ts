@@ -17,7 +17,7 @@ export class ProdutoCategoriaController {
     }
 
     async excluir(id) {
-        console.log('ClienteController/excluir --> cliente.id: ', id);
+        console.log('ProdutoCategoriaController/excluir --> ProdutoCategoria.id: ', id);
         const result = await getManager().delete(ProdutoCategoria, id);
         return result;
     }
