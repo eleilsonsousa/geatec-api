@@ -1,4 +1,3 @@
-import { resolve4 } from "dns";
 import { getManager, Like } from "typeorm";
 import Produto from "../entity/Produto";
 import { removeFieldsNull } from "../utils/Utils";

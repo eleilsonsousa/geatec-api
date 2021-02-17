@@ -11,6 +11,7 @@ const ServicoRouter_1 = require("./routers/ServicoRouter");
 const ProdutoRouter_1 = require("./routers/ProdutoRouter");
 const ProdutoCategoriaRouter_1 = require("./routers/ProdutoCategoriaRouter");
 const OrdemServicoRouter_1 = require("./routers/OrdemServicoRouter");
+const FabricanteRouter_1 = require("./routers/FabricanteRouter");
 /** CONFIGURAÇÃO DE PORTA */
 const app = express();
 app.use(cors());
@@ -29,6 +30,7 @@ app.get('/', (req, res) => { res.send(' =======> BEM VINDO A GEATEC API <=======
 app.use('/clientes', ClienteRouter_1.clienteRouter);
 app.use('/empresas', EmpresaRouter_1.empresaRouter);
 app.use('/unidades', UnidadeRouter_1.unidadeRouter);
+app.use('/fabricantes', FabricanteRouter_1.fabricanteRouter);
 app.use('/servicos', ServicoRouter_1.servicoRouter);
 app.use('/produtos', ProdutoRouter_1.produtoRouter);
 app.use('/produtos-categorias', ProdutoCategoriaRouter_1.produtoCategoriaRouter);

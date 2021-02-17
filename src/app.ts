@@ -13,6 +13,7 @@ import { servicoRouter } from './routers/ServicoRouter';
 import { produtoRouter } from './routers/ProdutoRouter';
 import { produtoCategoriaRouter } from './routers/ProdutoCategoriaRouter';
 import { ordemservicoRouter } from './routers/OrdemServicoRouter';
+import { fabricanteRouter } from './routers/FabricanteRouter';
 
 
 /** CONFIGURAÇÃO DE PORTA */
@@ -42,6 +43,7 @@ app.get('/', (req, res) => { res.send(' =======> BEM VINDO A GEATEC API <=======
 app.use('/clientes', clienteRouter);
 app.use('/empresas', empresaRouter);
 app.use('/unidades', unidadeRouter);
+app.use('/fabricantes', fabricanteRouter);
 app.use('/servicos', servicoRouter);
 app.use('/produtos', produtoRouter);
 app.use('/produtos-categorias', produtoCategoriaRouter);
