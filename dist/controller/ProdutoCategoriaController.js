@@ -22,10 +22,10 @@ class ProdutoCategoriaController {
             return yield Utils_1.removeFieldsNull(result);
         });
     }
-    excluir(produtocategoria) {
+    excluir(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('ProdutoCategoriaController/excluir --> ProdutoCategoria.id: ', produtocategoria.id);
-            const result = yield typeorm_1.getManager().delete(ProdutoCategoria_1.default, produtocategoria);
+            console.log('ProdutoCategoriaController/excluir --> ProdutoCategoria.id: ', id);
+            const result = yield typeorm_1.getManager().delete(ProdutoCategoria_1.default, id);
             return result;
         });
     }
