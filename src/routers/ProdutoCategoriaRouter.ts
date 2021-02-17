@@ -35,21 +35,6 @@ produtoCategoriaRouter.put('/', async (req, res, next) => {
     }
 })
 
-
-/** DELETE - Deletar Dados */
-produtoCategoriaRouter.delete('/', async (req, res, next) => {
-    try {
-        console.log('DELETE/excluir -> ', req.body);
-        const produtocategoria = await converteToObject(ProdutoCategoria, req.body);
-        const result = await controller.excluir(produtocategoria);
-        res.json(result);
-    } catch (err) {
-        res.json(getLogErros(err));
-        console.log('err.message :=> ', err.message);
-    }
-
-})
-
 /** DELETE - Deletar Dados */
 produtoCategoriaRouter.delete('/:id', async (req, res, next) => {
     try {
@@ -58,11 +43,10 @@ produtoCategoriaRouter.delete('/:id', async (req, res, next) => {
         res.json(result);
     } catch (err) {
         res.json(getLogErros(err));
-        console.log('err.message :=> ', err.message);
+        console.log('err.message :=> ', err.message); 
     }
 
 })
-
 
 
 /** GET - Buscar Todos */
