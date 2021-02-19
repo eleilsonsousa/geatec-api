@@ -38,7 +38,7 @@ produtoCategoriaRouter.put('/', async (req, res, next) => {
 /** DELETE - Deletar Dados */
 produtoCategoriaRouter.delete('/:id', async (req, res, next) => {
     try {
-        console.log('DELETE/excluir -> ', req.params.id);
+        console.log('DELETE/excluir -> ', req.params.id);  
         const result = await controller.excluir(req.params.id);
         res.json(result);
     } catch (err) {
