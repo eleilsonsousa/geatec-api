@@ -1,17 +1,18 @@
 {   
     "type": "mysql",
-    "host": "localhost",
+    "host": "mysql742.umbler.com",
     "port": 3306,
-    "username": "root",
-    "password": "root",
-    "database": "geatec_api",
+    "username": "geatec-root",
+    "password": "rootroot",
+    "database": "db-geatec",
     "synchronize": true,
     "logging": false,
     "entities": [
-        "src/entity/**/*.ts"
+        "dist/entity/*.js"
     ],
-    "subscribers": [
-        "src/subscriber/**/*.ts"
+    "migrations": [
+       "src/migration/**/*.ts",
+       "dist/migration/**/*.js"
     ],
     "cli": {
         "entitiesDir": "src/entity",
