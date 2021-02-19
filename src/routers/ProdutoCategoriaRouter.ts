@@ -45,7 +45,7 @@ produtoCategoriaRouter.delete('/:id', async (req, res, next) => {
         res.json(getLogErros(err));
         console.log('err.message :=> ', err.message); 
     }
-
+ /** Novo */
 })
 
 
