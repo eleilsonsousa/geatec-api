@@ -36,12 +36,13 @@ servicoRouter.put('/', async (req, res, next) => {
 })
 
 
+
+
 /** DELETE - Deletar Dados */
-servicoRouter.delete('/', async (req, res, next) => {
+servicoRouter.delete('/:id', async (req, res, next) => {
     try {
-        console.log('DELETE/excluir -> ', req.body);
-        const servico = await converteToObject(Servico, req.body);
-        const result = await controller.excluir(servico);
+        console.log('DELETE/excluir -> ', req.params.id); 
+        const result = await controller.excluir(req.params.id);
         res.json(result);
     } catch (err) {
         res.json(getLogErros(err));
@@ -49,6 +50,7 @@ servicoRouter.delete('/', async (req, res, next) => {
     }
 
 })
+
 
 
 /** GET - Buscar Todos */
