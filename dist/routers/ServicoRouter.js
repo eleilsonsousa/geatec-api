@@ -41,11 +41,10 @@ exports.servicoRouter.put('/', (req, res, next) => __awaiter(this, void 0, void 
     }
 }));
 /** DELETE - Deletar Dados */
-exports.servicoRouter.delete('/', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+exports.servicoRouter.delete('/:id', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
     try {
-        console.log('DELETE/excluir -> ', req.body);
-        const servico = yield Utils_1.converteToObject(Servico_1.default, req.body);
-        const result = yield controller.excluir(servico);
+        console.log('DELETE/excluir -> ', req.params.id);
+        const result = yield controller.excluir(req.params.id);
         res.json(result);
     }
     catch (err) {

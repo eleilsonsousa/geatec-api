@@ -51,6 +51,7 @@ exports.produtoCategoriaRouter.delete('/:id', (req, res, next) => __awaiter(this
         res.json(Utils_1.getLogErros(err));
         console.log('err.message :=> ', err.message);
     }
+    /** Novo */
 }));
 /** GET - Buscar Todos */
 exports.produtoCategoriaRouter.get('/', (req, res) => __awaiter(this, void 0, void 0, function* () {
