@@ -26,7 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], Servico.prototype, "observacao", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ type: "decimal", precision: 10, scale: 2, default: 0 }),
     __metadata("design:type", Number)
 ], Servico.prototype, "preco", void 0);
 __decorate([

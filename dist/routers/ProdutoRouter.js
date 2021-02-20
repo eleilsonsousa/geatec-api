@@ -41,11 +41,10 @@ exports.produtoRouter.put('/', (req, res, next) => __awaiter(this, void 0, void 
     }
 }));
 /** DELETE - Deletar Dados */
-exports.produtoRouter.delete('/', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+exports.produtoRouter.delete('/:id', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
     try {
-        console.log('DELETE/excluir -> ', req.body);
-        const produto = yield Utils_1.converteToObject(Produto_1.default, req.body);
-        const result = yield controller.excluir(produto);
+        console.log('DELETE/excluir -> ', req.params.id);
+        const result = yield controller.excluir(req.params.id);
         res.json(result);
     }
     catch (err) {
