@@ -14,7 +14,7 @@ export default class Servico extends EntityGeneric {
     @Column({ length: 150, nullable: true })
     observacao: string;
 
-    @Column()
+    @Column("decimal", { precision: 5, scale: 2 })
     preco: number;
 
 
