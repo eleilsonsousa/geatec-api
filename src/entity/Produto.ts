@@ -13,10 +13,10 @@ export  default class Produto extends EntityGeneric {
     @Column({ length: 150 })
     nome: string;
 
-    @Column({default: 0})
+    @Column({default: 0, nullable: true}) 
     precoCompra: number;
 
-    @Column({default: 0})
+    @Column({default: 0, nullable: true})
     precoVenda: number;
 
     @Column({ length: 150, nullable: true })
