@@ -37,11 +37,10 @@ produtoRouter.put('/', async (req, res, next) => {
 
 
 /** DELETE - Deletar Dados */
-produtoRouter.delete('/', async (req, res, next) => {
+produtoRouter.delete('/:id', async (req, res, next) => {
     try {
-        console.log('DELETE/excluir -> ', req.body);
-        const produto = await converteToObject(Produto, req.body);
-        const result = await controller.excluir(produto);
+        console.log('DELETE/excluir -> ', req.params.id); 
+        const result = await controller.excluir(req.params.id);
         res.json(result);
     } catch (err) {
         res.json(getLogErros(err));
