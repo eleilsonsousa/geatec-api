@@ -33,12 +33,12 @@ __decorate([
     __metadata("design:type", String)
 ], Produto.prototype, "observacao", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => Unidade_1.default, { nullable: true }),
+    typeorm_1.ManyToOne(type => Unidade_1.default, { nullable: true, eager: true }),
     typeorm_1.JoinColumn({ name: 'idUnidade' }),
     __metadata("design:type", Unidade_1.default)
 ], Produto.prototype, "unidade", void 0);
 __decorate([
-    typeorm_1.OneToOne(type => ProdutoCategoria_1.default, { eager: true }),
+    typeorm_1.OneToOne(type => ProdutoCategoria_1.default, { nullable: true, eager: true }),
     typeorm_1.JoinColumn({ name: 'idProdutoCategoria' }),
     __metadata("design:type", ProdutoCategoria_1.default)
 ], Produto.prototype, "categoria", void 0);

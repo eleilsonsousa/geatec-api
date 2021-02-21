@@ -24,11 +24,11 @@ export  default class Produto extends EntityGeneric {
 
     /** RELACIONAMENTOS */
 
-    @ManyToOne(type => Unidade, { nullable: true })
+    @ManyToOne(type => Unidade, { nullable: true, eager: true })
     @JoinColumn({name: 'idUnidade'})
     unidade: Unidade;
 
-    @OneToOne(type => ProdutoCategoria, {eager: true})
+    @OneToOne(type => ProdutoCategoria, {nullable: true, eager: true})
     @JoinColumn({ name: 'idProdutoCategoria'})
     categoria: ProdutoCategoria;
 
