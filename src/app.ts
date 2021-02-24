@@ -47,7 +47,7 @@ app.use('/fabricantes', fabricanteRouter);
 app.use('/servicos', servicoRouter);
 app.use('/produtos', produtoRouter);
 app.use('/produtos-categorias', produtoCategoriaRouter);
-app.use('/ordens-servico', ordemservicoRouter);
+app.use('/ordens-servicos', ordemservicoRouter);
 
 /** TRANTANDO ERROS DE URL'S */
 app.use((req, res, next) => {
