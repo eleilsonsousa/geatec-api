@@ -43,6 +43,8 @@ export default class OrdemServico extends EntityGeneric {
     @Column({length: 100, nullable: true})
     garantia: string;
 
+    @Column({nullable: true})
+    status: number;
 
     /** RELACIONAMENTOS */
 
@@ -50,7 +52,7 @@ export default class OrdemServico extends EntityGeneric {
     @JoinColumn({name: 'idCliente'})
     cliente: Cliente;
 
-    
+   
  
     @OneToMany(() => OrdemServicoItemProd, ordemServicoProd => 
                     ordemServicoProd.ordemServico, {cascade: true})
