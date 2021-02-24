@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const OrdemServicoStatus_1 = require("./OrdemServicoStatus");
 const EntityGeneric_1 = require("./EntityGeneric");
 const OrdemServicoItemProd_1 = require("./OrdemServicoItemProd");
 const OrdemServicoItemServ_1 = require("./OrdemServicoItemServ");
@@ -66,11 +65,6 @@ __decorate([
     typeorm_1.JoinColumn({ name: 'idCliente' }),
     __metadata("design:type", Cliente_1.default)
 ], OrdemServico.prototype, "cliente", void 0);
-__decorate([
-    typeorm_1.ManyToOne(type => OrdemServicoStatus_1.default, { nullable: true }),
-    typeorm_1.JoinColumn({ name: 'idOrdemServicoStatus' }),
-    __metadata("design:type", Object)
-], OrdemServico.prototype, "status", void 0);
 __decorate([
     typeorm_1.OneToMany(() => OrdemServicoItemProd_1.default, ordemServicoProd => ordemServicoProd.ordemServico, { cascade: true }),
     __metadata("design:type", Array)

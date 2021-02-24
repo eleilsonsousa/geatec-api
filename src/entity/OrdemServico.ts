@@ -50,9 +50,7 @@ export default class OrdemServico extends EntityGeneric {
     @JoinColumn({name: 'idCliente'})
     cliente: Cliente;
 
-    @ManyToOne(type => OrdemServicoStatus, { nullable: true })
-    @JoinColumn({name: 'idOrdemServicoStatus'})
-    status;
+    
  
     @OneToMany(() => OrdemServicoItemProd, ordemServicoProd => 
                     ordemServicoProd.ordemServico, {cascade: true})
