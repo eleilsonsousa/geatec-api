@@ -34,7 +34,7 @@ app.use('/fabricantes', FabricanteRouter_1.fabricanteRouter);
 app.use('/servicos', ServicoRouter_1.servicoRouter);
 app.use('/produtos', ProdutoRouter_1.produtoRouter);
 app.use('/produtos-categorias', ProdutoCategoriaRouter_1.produtoCategoriaRouter);
-app.use('/ordens-servico', OrdemServicoRouter_1.ordemservicoRouter);
+app.use('/ordens-servicos', OrdemServicoRouter_1.ordemservicoRouter);
 /** TRANTANDO ERROS DE URL'S */
 app.use((req, res, next) => {
     const erro = new Error('Url não encontrada, verifique os dados e tente novamente.');
