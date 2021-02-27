@@ -19,7 +19,6 @@ exports.ordemservicoRouter.post('/', (req, res) => __awaiter(this, void 0, void 
     try {
         //console.log('POST/salvar -> ', req.body);
         const ordemservico = yield Utils_1.converteToObject(OrdemServico_1.default, req.body);
-        console.log(ordemservico.cliente.id);
         const result = yield controller.salvar(ordemservico);
         res.json(result);
     }

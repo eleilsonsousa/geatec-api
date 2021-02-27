@@ -9,6 +9,8 @@ import Cliente from "./Cliente";
 @Entity('tb_ordens_servico')
 export default class OrdemServico extends EntityGeneric {
 
+    @Column({nullable: true})
+    numero: number;
 
     @Column({nullable: true})
     dataRecebimento: Date;
@@ -52,8 +54,6 @@ export default class OrdemServico extends EntityGeneric {
     @JoinColumn({name: 'idCliente'})
     cliente: Cliente;
 
-   
- 
     @OneToMany(() => OrdemServicoItemProd, ordemServicoProd => 
                     ordemServicoProd.ordemServico, {cascade: true})
     itensProdutos: OrdemServicoItemProd[];

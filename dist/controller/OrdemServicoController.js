@@ -19,9 +19,32 @@ class OrdemServicoController {
     }
     salvar(ordemservico) {
         return __awaiter(this, void 0, void 0, function* () {
+            // const proxNumOs = await this.buscarProxNumeroOrdemServico(ordemservico);
+            // ordemservico.numero = proxNumOs;
+            // // console.log('ProxNum', proxNumOs);
+            console.log(ordemservico);
             console.log('OrdemServicoController/salvar --> OrdemServico ', ordemservico);
             const result = yield typeorm_1.getManager().save(OrdemServico_1.default, ordemservico);
             return yield Utils_1.removeFieldsNull(result);
+        });
+    }
+    buscarProxNumeroOrdemServico(ordemservico) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!ordemservico.id) {
+                ordemservico.id = 1;
+            }
+            // console.log('OrdemServicoController/buscarProxNumeroOrdemServico :', ordemservico);
+            const sql = (' SELECT id FROM tb_ordens_servico os WHERE idEmpresa = ' + ordemservico.empresa.id +
+                ' AND os.id = ( SELECT MAX(id) FROM tb_ordens_servico )');
+            console.log(sql);
+            const result = yield typeorm_1.getManager().query(sql);
+            if (result)
+                return 1;
+            else {
+                return result;
+            }
+            return yield Utils_1.removeFieldsNull(result);
+            /** MELHORAR ESSE MÈTODO --> PERIGO DE SQL INJECTOR */
         });
     }
     excluir(id) {
@@ -86,7 +109,7 @@ class OrdemServicoController {
     buscarPorCampoParcial(campo, valor) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('OrdemServicoController/buscarPorNome [campo:valor]:', campo, ':', valor);
-            const result = yield typeorm_1.getManager().query('SELECT * FROM tb_ordemservicos WHERE ' + campo + ' LIKE "%' + valor +
+            const result = yield typeorm_1.getManager().query('SELECT * FROM tb_ordens_servicos WHERE ' + campo + ' LIKE "%' + valor +
                 '%"  LIMIT ' + this.maxResultQuery);
             return yield Utils_1.removeFieldsNull(result);
             /** MELHORAR ESSE MÈTODO --> PERIGO DE SQL INJECTOR */

@@ -1,6 +1,6 @@
 {
     "type": "mysql",
-    "host": "mysql742.umbler.com",
+    "host": "mysql743.umbler.com",
     "port": 3306,
     "username": "geatec-root",
     "password": "rootroot",

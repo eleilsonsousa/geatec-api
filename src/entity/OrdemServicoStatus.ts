@@ -14,9 +14,7 @@ export default class OrdemServicoStatus extends EntityGeneric {
     @Column({ length: 100, nullable: true })
     descricao: string;
     
-
     /** AUTO INCREMENTADOS  */
-    
     @CreateDateColumn()
     criadoEm: Date;
 

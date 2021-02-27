@@ -11,10 +11,44 @@ export class OrdemServicoController {
     maxResultQuery = 100;
 
     async salvar(ordemservico: OrdemServico) {
+     
+       // const proxNumOs = await this.buscarProxNumeroOrdemServico(ordemservico);
+       // ordemservico.numero = proxNumOs;
+      // // console.log('ProxNum', proxNumOs);
+
+        console.log(ordemservico);
+
         console.log('OrdemServicoController/salvar --> OrdemServico ', ordemservico);
         const result = await getManager().save(OrdemServico, ordemservico);
         return await removeFieldsNull(result);
 
+    }
+    async buscarProxNumeroOrdemServico(ordemservico: OrdemServico) {
+        if(!ordemservico.id) {
+            ordemservico.id = 1;
+        }
+
+       // console.log('OrdemServicoController/buscarProxNumeroOrdemServico :', ordemservico);
+        const sql = (' SELECT id FROM tb_ordens_servico os WHERE idEmpresa = ' + ordemservico.empresa.id +
+            ' AND os.id = ( SELECT MAX(id) FROM tb_ordens_servico )');
+
+            console.log(sql);
+
+        const result = await getManager().query(sql);
+
+        if (result) return 1
+        else {
+            return result;
+        }
+
+
+
+       
+
+        
+
+        return await removeFieldsNull(result);
+        /** MELHORAR ESSE MÈTODO --> PERIGO DE SQL INJECTOR */
     }
 
     async excluir(id) {
@@ -44,7 +78,7 @@ export class OrdemServicoController {
         /** Salvando Novos Servico na OrdemServiço */
         await ordemServicoJson.itensServicos.forEach(itemServico => {
             const itemServ = getManager().create(OrdemServicoItemServ, itemServico);
-            console.log("itemSev - " , itemServ)
+            console.log("itemSev - ", itemServ)
             itemServ.ordemServico = new OrdemServico();
             itemServ.ordemServico.id = ordemServicoJson.id;
             getManager().save(OrdemServicoItemServ, itemServ);
@@ -53,8 +87,8 @@ export class OrdemServicoController {
         /** Salvando Dados da nota */
         await delete ordemServicoJson['itensProdutos'];
         await delete ordemServicoJson['itensServicos'];
-        const result = getManager().update(OrdemServico, ordemServicoJson.id,  ordemServicoJson);
-        return  result ;
+        const result = getManager().update(OrdemServico, ordemServicoJson.id, ordemServicoJson);
+        return result;
     }
 
 
@@ -81,11 +115,12 @@ export class OrdemServicoController {
     async buscarPorCampoParcial(campo: string, valor: string) {
         console.log('OrdemServicoController/buscarPorNome [campo:valor]:', campo, ':', valor);
         const result = await getManager().query
-            ('SELECT * FROM tb_ordemservicos WHERE ' + campo + ' LIKE "%' + valor +
+            ('SELECT * FROM tb_ordens_servicos WHERE ' + campo + ' LIKE "%' + valor +
                 '%"  LIMIT ' + this.maxResultQuery);
         return await removeFieldsNull(result);
         /** MELHORAR ESSE MÈTODO --> PERIGO DE SQL INJECTOR */
     }
+
 
 
 

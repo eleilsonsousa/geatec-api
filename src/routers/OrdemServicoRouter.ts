@@ -14,7 +14,6 @@ ordemservicoRouter.post('/', async (req, res) => {
     try {
         //console.log('POST/salvar -> ', req.body);
         const ordemservico = await converteToObject(OrdemServico, req.body);
-        console.log(ordemservico.cliente.id);
         const result = await controller.salvar(ordemservico);
         res.json(result);
     } catch (err) {

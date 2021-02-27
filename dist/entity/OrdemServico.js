@@ -18,6 +18,10 @@ let OrdemServico = class OrdemServico extends EntityGeneric_1.default {
 };
 __decorate([
     typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", Number)
+], OrdemServico.prototype, "numero", void 0);
+__decorate([
+    typeorm_1.Column({ nullable: true }),
     __metadata("design:type", Date)
 ], OrdemServico.prototype, "dataRecebimento", void 0);
 __decorate([

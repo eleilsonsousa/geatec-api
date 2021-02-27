@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const Empresa_1 = require("./Empresa");
-let EntityGeneric = class EntityGeneric {
+class EntityGeneric {
     static className() {
         return this.name;
         // is the same as
         // return User.name
     }
-};
+}
 __decorate([
     typeorm_1.Index("id-index"),
     typeorm_1.PrimaryGeneratedColumn(),
@@ -25,12 +25,9 @@ __decorate([
 ], EntityGeneric.prototype, "id", void 0);
 __decorate([
     typeorm_1.Index("idEmpresa-index"),
-    typeorm_1.OneToOne(() => Empresa_1.default),
+    typeorm_1.ManyToOne(type => Empresa_1.default, { nullable: true }),
     typeorm_1.JoinColumn({ name: 'idEmpresa' }),
     __metadata("design:type", Empresa_1.default)
 ], EntityGeneric.prototype, "empresa", void 0);
-EntityGeneric = __decorate([
-    typeorm_1.Entity('tb_unidades')
-], EntityGeneric);
 exports.default = EntityGeneric;
 //# sourceMappingURL=EntityGeneric.js.map
