@@ -7,16 +7,14 @@ import Unidade from "./Unidade";
 @Entity('tb_produtos')
 export  default class Produto extends EntityGeneric {
 
-
-
     @Index("nome-index")
     @Column({ length: 150 })
     nome: string;
 
-    @Column({default: 0, nullable: true}) 
+    @Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable:true })
     precoCompra: number;
 
-    @Column({default: 0, nullable: true})
+    @Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable:true })
     precoVenda: number;
 
     @Column({ length: 150, nullable: true })
