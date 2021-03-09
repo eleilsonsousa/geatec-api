@@ -21,11 +21,11 @@ __decorate([
     __metadata("design:type", String)
 ], Produto.prototype, "nome", void 0);
 __decorate([
-    typeorm_1.Column({ default: 0, nullable: true }),
+    typeorm_1.Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable: true }),
     __metadata("design:type", Number)
 ], Produto.prototype, "precoCompra", void 0);
 __decorate([
-    typeorm_1.Column({ default: 0, nullable: true }),
+    typeorm_1.Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable: true }),
     __metadata("design:type", Number)
 ], Produto.prototype, "precoVenda", void 0);
 __decorate([
