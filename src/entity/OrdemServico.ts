@@ -9,62 +9,71 @@ import Cliente from "./Cliente";
 @Entity('tb_ordens_servico')
 export default class OrdemServico extends EntityGeneric {
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     numero: number;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     dataRecebimento: Date;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     dataRealizacao: Date;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     dataEntrega: Date;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     valorTotalProdutos: number;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     valorTotalServicos: number;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     desconto: number;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     totalOrdemServico: number;
 
-    @Column({length: 100, nullable: true})
+    @Column({ length: 100, nullable: true })
     equipamentos: string;
 
-    @Column({length: 200, nullable: true})
+    @Column({ length: 200, nullable: true })
     defeitos: string;
 
-    @Column({length: 200,nullable: true})
+    @Column({ length: 200, nullable: true })
     laudoTecnico: string;
 
-    @Column({length: 100, nullable: true})
+    @Column({ length: 100, nullable: true })
     garantia: string;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     status: number;
 
     /** RELACIONAMENTOS */
 
-    @ManyToOne(type => Cliente, { nullable: true })
-    @JoinColumn({name: 'idCliente'})
+    @ManyToOne(type => Cliente, { nullable: false, eager: true })
+    @JoinColumn({ name: 'idCliente' })
     cliente: Cliente;
 
-    @OneToMany(() => OrdemServicoItemProd, ordemServicoProd => 
-                    ordemServicoProd.ordemServico, {cascade: true})
-    itensProdutos: OrdemServicoItemProd[];
+    /*   @OneToMany(() => OrdemServicoItemProd, ordemServicoProd => 
+                      ordemServicoProd.ordemServico, {cascade: true})
+      itensProdutos: OrdemServicoItemProd[]; 
+  
+      @OneToMany(() => OrdemServicoItemServ, ordemServicoServ => 
+                      ordemServicoServ.ordemServico, {cascade: true})
+      itensServicos: OrdemServicoItemServ[]; 
+   */
 
-    @OneToMany(() => OrdemServicoItemServ, ordemServicoServ => 
-                    ordemServicoServ.ordemServico, {cascade: true})
-    itensServicos: OrdemServicoItemServ[]; 
+    @OneToMany(() => OrdemServicoItemProd, ordemServicoProd =>
+        ordemServicoProd.ordemServico, { cascade: true })
+    itensProdutos: Promise<OrdemServicoItemProd[]>;
 
-    
+    @OneToMany(() => OrdemServicoItemServ, ordemServicoServ =>
+        ordemServicoServ.ordemServico, { cascade: true })
+    itensServicos: Promise<OrdemServicoItemServ[]>;
+
+
     /** AUTO INCREMENTADOS  */
-    
+
     @CreateDateColumn()
     criadoEm: Date;
 
