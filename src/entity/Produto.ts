@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, Index, ManyToOne } from "typeorm";
 import Empresa from "./Empresa";
 import EntityGeneric from "./EntityGeneric";
+import Fabricante from "./Fabricante";
 import ProdutoCategoria from "./ProdutoCategoria";
 import Unidade from "./Unidade";
 
@@ -29,6 +30,10 @@ export  default class Produto extends EntityGeneric {
     @OneToOne(type => ProdutoCategoria, {nullable: true, eager: true})
     @JoinColumn({ name: 'idProdutoCategoria'})
     categoria: ProdutoCategoria;
+
+    @OneToOne(type => Fabricante, {nullable: true, eager: true})
+    @JoinColumn({ name: 'idFabricante'})
+    fabricante: Fabricante;
 
     /** AUTO INCREMENTADOS  */
 

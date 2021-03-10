@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const EntityGeneric_1 = require("./EntityGeneric");
+const Fabricante_1 = require("./Fabricante");
 const ProdutoCategoria_1 = require("./ProdutoCategoria");
 const Unidade_1 = require("./Unidade");
 let Produto = class Produto extends EntityGeneric_1.default {
@@ -42,6 +43,11 @@ __decorate([
     typeorm_1.JoinColumn({ name: 'idProdutoCategoria' }),
     __metadata("design:type", ProdutoCategoria_1.default)
 ], Produto.prototype, "categoria", void 0);
+__decorate([
+    typeorm_1.OneToOne(type => Fabricante_1.default, { nullable: true, eager: true }),
+    typeorm_1.JoinColumn({ name: 'idFabricante' }),
+    __metadata("design:type", Fabricante_1.default)
+], Produto.prototype, "fabricante", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)
