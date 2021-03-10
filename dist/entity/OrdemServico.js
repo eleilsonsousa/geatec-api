@@ -69,17 +69,17 @@ __decorate([
     __metadata("design:type", Number)
 ], OrdemServico.prototype, "status", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => Cliente_1.default, { nullable: true }),
+    typeorm_1.ManyToOne(type => Cliente_1.default, { nullable: false, eager: true }),
     typeorm_1.JoinColumn({ name: 'idCliente' }),
     __metadata("design:type", Cliente_1.default)
 ], OrdemServico.prototype, "cliente", void 0);
 __decorate([
     typeorm_1.OneToMany(() => OrdemServicoItemProd_1.default, ordemServicoProd => ordemServicoProd.ordemServico, { cascade: true }),
-    __metadata("design:type", Array)
+    __metadata("design:type", Promise)
 ], OrdemServico.prototype, "itensProdutos", void 0);
 __decorate([
     typeorm_1.OneToMany(() => OrdemServicoItemServ_1.default, ordemServicoServ => ordemServicoServ.ordemServico, { cascade: true }),
-    __metadata("design:type", Array)
+    __metadata("design:type", Promise)
 ], OrdemServico.prototype, "itensServicos", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
