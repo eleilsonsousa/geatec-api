@@ -40,13 +40,6 @@ export class OrdemServicoController {
         else {
             return result;
         }
-
-
-
-       
-
-        
-
         return await removeFieldsNull(result);
         /** MELHORAR ESSE MÈTODO --> PERIGO DE SQL INJECTOR */
     }
