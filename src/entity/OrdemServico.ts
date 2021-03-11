@@ -21,16 +21,16 @@ export default class OrdemServico extends EntityGeneric {
     @Column({ nullable: true })
     dataEntrega: Date;
 
-    @Column({ nullable: true })
+    @Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable:true })
     valorTotalProdutos: number;
 
-    @Column({ nullable: true })
+    @Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable:true })
     valorTotalServicos: number;
 
-    @Column({ nullable: true })
+    @Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable:true })
     desconto: number;
 
-    @Column({ nullable: true })
+    @Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable:true })
     totalOrdemServico: number;
 
     @Column({ length: 100, nullable: true })

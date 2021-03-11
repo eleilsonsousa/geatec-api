@@ -33,19 +33,19 @@ __decorate([
     __metadata("design:type", Date)
 ], OrdemServico.prototype, "dataEntrega", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: true }),
+    typeorm_1.Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable: true }),
     __metadata("design:type", Number)
 ], OrdemServico.prototype, "valorTotalProdutos", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: true }),
+    typeorm_1.Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable: true }),
     __metadata("design:type", Number)
 ], OrdemServico.prototype, "valorTotalServicos", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: true }),
+    typeorm_1.Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable: true }),
     __metadata("design:type", Number)
 ], OrdemServico.prototype, "desconto", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: true }),
+    typeorm_1.Column({ type: "decimal", precision: 10, scale: 2, default: 0, nullable: true }),
     __metadata("design:type", Number)
 ], OrdemServico.prototype, "totalOrdemServico", void 0);
 __decorate([
